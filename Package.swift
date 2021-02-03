@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "libwebp",
+    platforms: [
+        .iOS(.v9), .tvOS(.v10), .macOS(.v10_13)
+    ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
@@ -21,9 +24,10 @@ let package = Package(
         .target(
             name: "libwebp",
             dependencies: [],
-            path: ".",
-            sources: ["libwebp/src"],
+            path: "libwebp/src",
             publicHeadersPath: "include",
-            cSettings: [.headerSearchPath("libwebp")])
+            cSettings: [
+                .headerSearchPath("include"),
+            ])
     ]
 )
